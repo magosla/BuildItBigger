@@ -14,11 +14,6 @@ abstract class MainActivityAbstract  extends AppCompatActivity implements Endpoi
     private Button mButton;
     private String mButtonText;
     private ProgressBar mProgressBar;
-    private boolean mShowInterstitialAds;
-
-    protected void showInterstitialAds(){
-        mShowInterstitialAds = true;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +44,7 @@ abstract class MainActivityAbstract  extends AppCompatActivity implements Endpoi
         mButton.setText(mButtonText);
         mButton.setEnabled(true);
 
-        if(!mShowInterstitialAds) {
-            launchJokeActivity(result);
-        }
+        launchJokeActivity(result);
     }
 
     abstract void launchJokeActivity(String joke);
