@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BuildItBigger</string>
+    <string name="msg_loading">Loading...</string>
+</resources>
