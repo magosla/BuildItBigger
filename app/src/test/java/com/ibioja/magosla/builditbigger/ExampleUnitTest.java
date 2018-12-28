@@ -1,4 +1,4 @@
-package com.naijaplanet.magosla.android.builditbigger;
+package com.ibioja.magosla.builditbigger;
 
 import org.junit.Test;
 

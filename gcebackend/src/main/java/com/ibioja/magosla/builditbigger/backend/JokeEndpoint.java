@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 
 /** An endpoint class we are exposing */
+@SuppressWarnings("DefaultAnnotationParam")
 @Api(
         name = "jokeApi",
         version = "v1",
@@ -20,7 +21,7 @@ import javax.inject.Named;
 )
 public class JokeEndpoint {
 
-    private Joke mJoke = new Joke();
+    private final Joke mJoke = new Joke();
 
     @ApiMethod(name = "getJoke")
     public JokeBean getJoke(){

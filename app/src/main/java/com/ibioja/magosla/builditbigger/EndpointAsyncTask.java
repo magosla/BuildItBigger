@@ -48,7 +48,7 @@ class EndpointsAsyncTask extends AsyncTask<String, Void, String> {
                     .setRootUrl("https://builditbigger-226123.appspot.com/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
-                        public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
+                        public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) {
                             abstractGoogleClientRequest.setDisableGZipContent(true);
                         }
                     });

@@ -1,4 +1,5 @@
-package com.naijaplanet.magosla.android.builditbigger;
+package com.ibioja.magosla.builditbigger;
+
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -16,6 +16,7 @@ public class JokeBean {
 
     */
 
+    @SuppressWarnings("unused")
     public String getData() {
         return myData.getJoke();
     }
