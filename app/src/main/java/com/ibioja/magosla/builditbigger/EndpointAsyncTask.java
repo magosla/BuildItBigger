@@ -13,17 +13,12 @@ import java.lang.ref.WeakReference;
 
 import javax.annotation.Nullable;
 
-class EndpointsAsyncTask extends AsyncTask<String, Void, String> {
+class EndpointAsyncTask extends AsyncTask<String, Void, String> {
     private JokeApi jokeApiService = null;
     private WeakReference<Callback> mCallback;
 
-    public interface Callback{
-        void onLoading();
-        void onFinished(String result);
-    }
-
-    EndpointsAsyncTask(@Nullable Callback callback){
-        if(callback != null) {
+    EndpointAsyncTask(@Nullable Callback callback) {
+        if (callback != null) {
             mCallback = new WeakReference<>(callback);
         }
     }
@@ -31,9 +26,9 @@ class EndpointsAsyncTask extends AsyncTask<String, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        if(mCallback != null){
+        if (mCallback != null) {
             Callback cb = mCallback.get();
-            if (cb != null){
+            if (cb != null) {
                 cb.onLoading();
             }
         }
@@ -57,24 +52,30 @@ class EndpointsAsyncTask extends AsyncTask<String, Void, String> {
         }
 
         try {
-            if(params.length == 0 || params[0] == null){
+            if (params.length == 0 || params[0] == null) {
                 // jokeApiService.getJoke()
                 return jokeApiService.getJoke().execute().getData();
-            }else{
+            } else {
                 return jokeApiService.setJoke(params[0]).execute().getData();
             }
         } catch (IOException e) {
-            return e.getMessage();
+            return null;
         }
     }
 
     @Override
     protected void onPostExecute(String result) {
-        if(mCallback != null){
+        if (mCallback != null) {
             Callback cb = mCallback.get();
-            if (cb != null){
+            if (cb != null) {
                 cb.onFinished(result);
             }
         }
+    }
+
+    public interface Callback {
+        void onLoading();
+
+        void onFinished(@Nullable String result);
     }
 }

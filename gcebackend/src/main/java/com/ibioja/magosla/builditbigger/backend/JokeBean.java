@@ -4,7 +4,7 @@ import com.ibioja.magosla.builditbigger.jokelib.Joke;
 
 public class JokeBean {
     private Joke myData;
-   //private String myData;
+    //private String myData;
    /*
     public String getData() {
         return myData;

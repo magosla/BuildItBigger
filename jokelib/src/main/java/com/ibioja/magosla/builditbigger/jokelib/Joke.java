@@ -3,15 +3,15 @@ package com.ibioja.magosla.builditbigger.jokelib;
 public class Joke {
     private String joke;
 
-    public Joke(){
+    public Joke() {
         joke = "This is a default joke";
-    }
-
-    public void setJoke(String joke) {
-        this.joke = joke;
     }
 
     public String getJoke() {
         return joke;
+    }
+
+    public void setJoke(String joke) {
+        this.joke = joke;
     }
 }

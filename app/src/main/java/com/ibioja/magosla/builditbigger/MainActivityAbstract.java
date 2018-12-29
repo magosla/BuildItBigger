@@ -1,30 +1,36 @@
 package com.ibioja.magosla.builditbigger;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import com.ibioja.magosla.builditbigger.databinding.ActivityMainBinding;
 
 
-abstract class MainActivityAbstract  extends AppCompatActivity implements EndpointsAsyncTask.Callback {
+abstract class MainActivityAbstract extends AppCompatActivity implements EndpointAsyncTask.Callback {
 
+    protected ActivityMainBinding mBinding;
     private Button mButton;
     private String mButtonText;
     private ProgressBar mProgressBar;
+    private Toast mToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mButton = findViewById(R.id.joke_btn);
-        mProgressBar = findViewById(R.id.progress_bar);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mButton = mBinding.jokeBtn;
+        mProgressBar = mBinding.progressBar;
         mButtonText = mButton.getText().toString();
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new EndpointsAsyncTask(MainActivityAbstract.this).execute();
+                new EndpointAsyncTask(MainActivityAbstract.this).execute();
             }
         });
     }
@@ -41,8 +47,15 @@ abstract class MainActivityAbstract  extends AppCompatActivity implements Endpoi
         mProgressBar.setVisibility(View.GONE);
         mButton.setText(mButtonText);
         mButton.setEnabled(true);
-
-        launchJokeActivity(result);
+        if (result != null) {
+            launchJokeActivity(result);
+        } else {
+            if (mToast != null) {
+                mToast.cancel();
+            }
+            mToast = Toast.makeText(this, R.string.msg_joke_fetch_error, Toast.LENGTH_SHORT);
+            mToast.show();
+        }
     }
 
     abstract void launchJokeActivity(String joke);

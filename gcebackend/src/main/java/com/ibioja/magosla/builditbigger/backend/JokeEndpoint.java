@@ -8,7 +8,9 @@ import com.ibioja.magosla.builditbigger.jokelib.Joke;
 import javax.inject.Named;
 
 
-/** An endpoint class we are exposing */
+/**
+ * An endpoint class we are exposing
+ */
 @SuppressWarnings("DefaultAnnotationParam")
 @Api(
         name = "jokeApi",
@@ -24,7 +26,7 @@ public class JokeEndpoint {
     private final Joke mJoke = new Joke();
 
     @ApiMethod(name = "getJoke")
-    public JokeBean getJoke(){
+    public JokeBean getJoke() {
         //    Joke mJoke = new Joke();
         JokeBean response = new JokeBean();
         response.setData(mJoke);
@@ -34,7 +36,7 @@ public class JokeEndpoint {
     }
 
     @ApiMethod(name = "setJoke")
-    public JokeBean setJoke(@Named("joke") String joke){
+    public JokeBean setJoke(@Named("joke") String joke) {
         mJoke.setJoke(joke);
         JokeBean response = new JokeBean();
         response.setData(mJoke);
