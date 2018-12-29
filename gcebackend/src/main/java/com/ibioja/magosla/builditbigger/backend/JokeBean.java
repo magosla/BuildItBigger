@@ -2,7 +2,7 @@ package com.ibioja.magosla.builditbigger.backend;
 
 import com.ibioja.magosla.builditbigger.jokelib.Joke;
 
-public class JokeBean {
+public final class JokeBean {
     private Joke myData;
     //private String myData;
    /*

@@ -1,6 +1,7 @@
 package com.ibioja.magosla.builditbigger;
 
 import android.support.test.runner.AndroidJUnit4;
+import android.text.TextUtils;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +15,7 @@ public class EndpointAsyncTest {
     @Test
     public void testResult() throws ExecutionException, InterruptedException {
         String result = new EndpointAsyncTask(null).execute().get();
-        assertTrue("Result must not be empty", result!=null && !result.isEmpty());
+        assertTrue("Result must not be empty", !TextUtils.isEmpty(result));
     }
 
 

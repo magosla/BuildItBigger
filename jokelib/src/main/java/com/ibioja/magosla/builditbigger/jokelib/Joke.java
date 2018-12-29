@@ -1,6 +1,6 @@
 package com.ibioja.magosla.builditbigger.jokelib;
 
-public class Joke {
+public final class Joke {
     private String joke;
 
     public Joke() {

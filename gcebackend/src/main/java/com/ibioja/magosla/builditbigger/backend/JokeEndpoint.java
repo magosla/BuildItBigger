@@ -21,7 +21,7 @@ import javax.inject.Named;
                 packagePath = ""
         )
 )
-public class JokeEndpoint {
+public final class JokeEndpoint {
 
     private final Joke mJoke = new Joke();
 

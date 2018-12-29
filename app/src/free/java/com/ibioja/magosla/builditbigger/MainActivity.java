@@ -11,10 +11,10 @@ import com.google.android.gms.ads.MobileAds;
 import com.ibioja.magosla.builditbigger.jokeviewlib.JokeActivity;
 
 
-public class MainActivity extends MainActivityAbstract {
+public final class MainActivity extends MainActivityAbstract {
 
     private InterstitialAd mInterstitialAd;
-    private String jokeText;
+    private String mJokeText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class MainActivity extends MainActivityAbstract {
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
-                if (!jokeText.isEmpty()) {
+                if (!mJokeText.isEmpty()) {
                     jokeActivity();
                 }
             }
@@ -39,7 +39,7 @@ public class MainActivity extends MainActivityAbstract {
 
     @Override
     void launchJokeActivity(String joke) {
-        jokeText = joke;
+        mJokeText = joke;
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
@@ -50,7 +50,7 @@ public class MainActivity extends MainActivityAbstract {
 
     private void jokeActivity() {
         Intent intent = new Intent(getApplicationContext(), JokeActivity.class);
-        intent.putExtra(JokeActivity.JOKE_BUNDLE, jokeText);
+        intent.putExtra(JokeActivity.JOKE_BUNDLE, mJokeText);
         startActivity(intent);
     }
 }

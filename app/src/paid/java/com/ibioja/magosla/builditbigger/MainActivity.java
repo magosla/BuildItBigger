@@ -4,7 +4,7 @@ import android.content.Intent;
 
 import com.ibioja.magosla.builditbigger.jokeviewlib.JokeActivity;
 
-public class MainActivity extends MainActivityAbstract {
+public final class MainActivity extends MainActivityAbstract {
 
     @Override
     void launchJokeActivity(String joke) {

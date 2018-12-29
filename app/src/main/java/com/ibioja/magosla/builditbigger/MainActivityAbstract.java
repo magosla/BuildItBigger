@@ -3,6 +3,7 @@ package com.ibioja.magosla.builditbigger;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -47,7 +48,7 @@ abstract class MainActivityAbstract extends AppCompatActivity implements Endpoin
         mProgressBar.setVisibility(View.GONE);
         mButton.setText(mButtonText);
         mButton.setEnabled(true);
-        if (result != null) {
+        if (!TextUtils.isEmpty(result)) {
             launchJokeActivity(result);
         } else {
             if (mToast != null) {
