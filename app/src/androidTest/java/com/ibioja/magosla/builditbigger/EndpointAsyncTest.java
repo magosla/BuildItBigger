@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 
 import java.util.concurrent.ExecutionException;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(AndroidJUnit4.class)
@@ -15,6 +16,7 @@ public class EndpointAsyncTest {
     @Test
     public void testResult() throws ExecutionException, InterruptedException {
         String result = new EndpointAsyncTask(null).execute().get();
+        assertNotNull(result);
         assertTrue("Result must not be empty", !TextUtils.isEmpty(result));
     }
 
