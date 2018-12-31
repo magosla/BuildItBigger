@@ -14,7 +14,7 @@ import com.ibioja.magosla.builditbigger.databinding.ActivityMainBinding;
 
 abstract class MainActivityAbstract extends AppCompatActivity implements EndpointAsyncTask.Callback {
 
-    protected ActivityMainBinding mBinding;
+    ActivityMainBinding mBinding;
     private Button mButton;
     private String mButtonText;
     private ProgressBar mProgressBar;
