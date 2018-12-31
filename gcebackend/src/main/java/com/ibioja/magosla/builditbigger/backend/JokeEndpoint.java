@@ -27,11 +27,8 @@ public final class JokeEndpoint {
 
     @ApiMethod(name = "getJoke")
     public JokeBean getJoke() {
-        //    Joke mJoke = new Joke();
         JokeBean response = new JokeBean();
         response.setData(mJoke);
-
-        // response.setData("sd");
         return response;
     }
 
@@ -42,13 +39,4 @@ public final class JokeEndpoint {
         response.setData(mJoke);
         return response;
     }
-    /*
-    @ApiMethod(name = "sayJoke")
-    public JokeBean sayJoke(@Named("joke") String joke){
-        mJoke.setJoke(joke);
-        JokeBean response = new JokeBean();
-        response.setData(mJoke);
-        return response;
-    }
-    */
 }
